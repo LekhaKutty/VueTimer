@@ -2,15 +2,19 @@
   <h1>Reaction Timmer</h1>
   <button @click="startPlay" :disabled="isPlaying">Play</button>
   <Block v-if="isPlaying" :delay="delay" @endingGame="endGame"/>
-  <p v-if="showResults">Reaction Time: {{score}}</p>
+  <Results v-if="showResults" :score="score"/>
+ 
+ 
 </template>
 
 <script>
 import Block from './components/Block.vue'
+import Results from './components/Results.vue'
 export default {
   name: 'App',
   components: {
-    Block
+    Block,
+    Results
   },
   data() {
     return{
